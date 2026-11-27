@@ -1,0 +1,77 @@
+vboxuser@ubuntu26:~$ cd Linux_task
+vboxuser@ubuntu26:~/Linux_task$ mkdir task3
+vboxuser@ubuntu26:~/Linux_task$ cd task3
+vboxuser@ubuntu26:~/Linux_task/task3$ mkdir working shared private
+vboxuser@ubuntu26:~/Linux_task/task3$ cd working
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cat > participants.txt << EOF
+> Maria
+> Boris
+> Elena
+> Georgi
+> Anna
+> EOF
+vboxuser@ubuntu26:~/Linux_task/task3/working$ sort participants
+sort: cannot read: participants: No such file or directory
+vboxuser@ubuntu26:~/Linux_task/task3/working$ sort participants.txt
+Anna
+Boris
+Elena
+Georgi
+Maria
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cp participants.txt ../shared/club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cp participants.txt ../private/club_backup.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ ls -l ../shared ../private
+../private:
+total 4
+-rw-rw-r-- 1 vboxuser vboxuser 30 Nov 12 15:52 club_backup.txt
+
+../shared:
+total 4
+-rw-rw-r-- 1 vboxuser vboxuser 30 Nov 12 15:52 club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ chmod 644 ../shared/club.list.txt
+chmod: cannot access '../shared/club.list.txt': No such file or directory
+vboxuser@ubuntu26:~/Linux_task/task3/working$ chmod 644 ../shared/club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ chmod 600 ../private/club_backup.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ ls -l ../shared ../private
+../private:
+total 4
+-rw------- 1 vboxuser vboxuser 30 Nov 12 15:52 club_backup.txt
+
+../shared:
+total 4
+-rw-r--r-- 1 vboxuser vboxuser 30 Nov 12 15:52 club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cat >> participants.txt << EOF
+> Petya
+> Viktor
+> EOF
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cp participants.txt ../shared/club_list_updated.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ chmod 644 ../shared/club_list_updated.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ ls -l ../shared
+total 8
+-rw-r--r-- 1 vboxuser vboxuser 30 Nov 12 15:52 club_list.txt
+-rw-r--r-- 1 vboxuser vboxuser 43 Nov 12 15:58 club_list_updated.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ rm ../shared/club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ mv ../shared/club_list_updated.txt ../shared/club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ ls -l ../shared ../private
+../private:
+total 4
+-rw------- 1 vboxuser vboxuser 30 Nov 12 15:52 club_backup.txt
+
+../shared:
+total 4
+-rw-r--r-- 1 vboxuser vboxuser 43 Nov 12 15:58 club_list.txt
+vboxuser@ubuntu26:~/Linux_task/task3/working$ sort ../shared/club_list.txt
+Anna
+Boris
+Elena
+Georgi
+Maria
+Petya
+Viktor
+vboxuser@ubuntu26:~/Linux_task/task3/working$ sort ../private/club_backup.txt
+Anna
+Boris
+Elena
+Georgi
+Maria
+vboxuser@ubuntu26:~/Linux_task/task3/working$ cd ..
