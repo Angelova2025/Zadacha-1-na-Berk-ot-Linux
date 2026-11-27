@@ -1,0 +1,57 @@
+vboxuser@ubuntu26:~/Documents/Linux_task$ mkdir task2
+vboxuser@ubuntu26:~/Documents/Linux_task$ cd task2
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ mkdir work ready backup
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ ls
+backup  ready  work
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ cd work
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ touch plan.txt draft.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cat >plan.txt<< EOF
+> Math
+> English
+> Informatics
+> Biology
+> EOF
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cat plan.txt
+Math
+English
+Informatics
+Biology
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ ls
+draft.txt  plan.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cp plan.txt../backup/plan.txt
+cp: missing destination file operand after 'plan.txt../backup/plan.txt'
+Try 'cp --help' for more information.
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cp plan.txt ../backup/plan.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ mv plan.txt week1.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ echo History >> week1.txt 
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cat week1.txt
+Math
+English
+Informatics
+Biology
+History
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ mv week1.txt ../ready/
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ rm draft.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ ls
+vboxuser@ubuntu26:~/Documents/Linux_task/task2/work$ cd ..
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ rmdir work
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ ls ready backup
+backup:
+plan.txt
+
+ready:
+week1.txt
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ sort ready/week1.txt
+Biology
+English
+History
+Informatics
+Math
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ sort backup/plan.txt
+Biology
+English
+Informatics
+Math
+vboxuser@ubuntu26:~/Documents/Linux_task/task2$ cd ..
+vboxuser@ubuntu26:~/Documents/Linux_task$ 
+
