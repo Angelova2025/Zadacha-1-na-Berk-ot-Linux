@@ -1,0 +1,46 @@
+vboxuser@ubuntu26:~/Linux_task/task3$ mkdir task4
+vboxuser@ubuntu26:~/Linux_task/task3$ cd task4
+vboxuser@ubuntu26:~/Linux_task/task3/task4$ mkdir incoming teams archive temp
+vboxuser@ubuntu26:~/Linux_task/task3/task4$ cd incoming
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ cat > blue_draft.txt << EOF
+> Maria
+> Boris
+> Elena
+> Georgi
+> Anna
+> EOF
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ cat > green_draft.txt << EOF
+> Viktor
+> Patya
+> Denis
+> Desislava
+> Dara
+> EOF
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ sort blue_draft.txt
+Anna
+Boris
+Elena
+Georgi
+Maria
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ sort green.draft.txt
+sort: cannot read: green.draft.txt: No such file or directory
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ sort green_draft.txt
+Dara
+Denis
+Desislava
+Patya
+Viktor
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ cp blue_draft.txt ../archive/blue_original.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ cp green_draft.txt ../archive/green_original.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ chmod 600 ../archive/blue_original.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ chmod 600 ../archive/green_original.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ ls -l ../archive
+total 8
+-rw------- 1 vboxuser vboxuser 30 Nov 12 16:07 blue_original.txt
+-rw------- 1 vboxuser vboxuser 34 Nov 12 16:08 green_original.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ mv blue_draft.txt ../temp/blue.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ mv green_draft.txt ../temp/green.txt
+vboxuser@ubuntu26:~/Linux_task/task3/task4/incoming$ cd ../temp
+vboxuser@ubuntu26:~/Linux_task/task3/task4/temp$ sed -i'/elena$/d' blue.txt
+sed: can't find label for jump to `lue.txt'
+vboxuser@ubuntu26:~/Linux_task/task3/task4/temp$ 
